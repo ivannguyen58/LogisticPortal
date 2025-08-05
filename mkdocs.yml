@@ -1,0 +1,94 @@
+site_name: Customer Online Portal Documentation
+site_description: ALSC Logistics Customer Online Portal - Requirements and Development Documentation
+site_author: ALSC Development Team
+site_url: https://portal-docs.alsc.com
+
+# Repository
+repo_name: CustomerOnlinePortal
+repo_url: https://github.com/alsc/CustomerOnlinePortal
+
+# Configuration
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.share
+    - toc.follow
+    - content.code.copy
+    - content.code.annotate
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+# Plugins
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+
+# Page tree
+nav:
+  - Home: index.md
+  - Product Backlog:
+    - Backlog Overview: backlog/overview.md
+    - Complete User Stories: backlog/user-stories.md
+  - Architecture & Design:
+    - System Architecture: overview/architecture.md
+    - Database Design: technical/database-design.md
+    - API Specifications: technical/api-specs.md
+    - Odoo Fit & Gap Analysis: technical/odoo-fit-gap.md
+
+# Extra
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/alsc/CustomerOnlinePortal
+  version:
+    provider: mike
+
+# CSS
+extra_css:
+  - stylesheets/extra.css

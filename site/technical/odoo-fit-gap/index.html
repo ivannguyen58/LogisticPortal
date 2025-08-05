@@ -1,0 +1,2766 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ALSC Logistics Customer Online Portal - Requirements and Development Documentation">
+      
+      
+        <meta name="author" content="ALSC Development Team">
+      
+      
+        <link rel="canonical" href="https://portal-docs.alsc.com/technical/odoo-fit-gap/">
+      
+      
+        <link rel="prev" href="../api-specs/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Odoo Fit & Gap Analysis - Customer Online Portal Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#odoo-erp-fit-gap-analysis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Customer Online Portal Documentation" class="md-header__button md-logo" aria-label="Customer Online Portal Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Customer Online Portal Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Odoo Fit & Gap Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/alsc/CustomerOnlinePortal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CustomerOnlinePortal
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../backlog/overview/" class="md-tabs__link">
+          
+  
+  
+  Product Backlog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../overview/architecture/" class="md-tabs__link">
+          
+  
+  
+  Architecture & Design
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Customer Online Portal Documentation" class="md-nav__button md-logo" aria-label="Customer Online Portal Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Customer Online Portal Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/alsc/CustomerOnlinePortal" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CustomerOnlinePortal
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Product Backlog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Product Backlog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backlog/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backlog Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backlog/user-stories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Complete User Stories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture & Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture & Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../overview/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    System Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database Design
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-specs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Specifications
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Odoo Fit & Gap Analysis
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Odoo Fit & Gap Analysis
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executive Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-module-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Module Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Module Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crm-customer-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. CRM &amp; Customer Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. CRM &amp; Customer Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-crm-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo CRM Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo CRM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-requirements-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Requirements (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sales-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sales Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Sales Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-sales-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Sales Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-sales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Sales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-requirements-gap_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Requirements (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-inventory-logistics-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Inventory &amp; Logistics Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Inventory &amp; Logistics Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-inventory-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Inventory Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Inventory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#critical-customizations-required-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical Customizations Required (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-accounting-invoicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Accounting &amp; Invoicing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Accounting &amp; Invoicing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-accounting-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Accounting Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-accounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Accounting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-requirements-gap_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Requirements (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-project-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Project Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Project Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-project-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Project Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-recommendation-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Recommendation (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-website-customer-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Website &amp; Customer Portal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Website &amp; Customer Portal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-website-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Website Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-website" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Website
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-requirements-gap_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Requirements (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-architecture-with-odoo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Architecture with Odoo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Architecture with Odoo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-integration-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Integration Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-synchronization-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Synchronization Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Synchronization Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-time-sync-immediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-time Sync (Immediate)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-sync-scheduled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch Sync (Scheduled)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-driven-sync-triggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event-driven Sync (Triggered)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Roadmap
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-core-odoo-setup-4-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Core Odoo Setup (4 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-basic-integration-6-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Basic Integration (6 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-logistics-customization-8-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Logistics Customization (8 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-advanced-features-6-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Advanced Features (6 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-5-testing-deployment-4-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 5: Testing &amp; Deployment (4 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-benefit-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost-Benefit Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost-Benefit Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-licensing-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Licensing Costs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-development-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Development Costs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-solution-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Solution Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Assessment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Risks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Risks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-recommendation-hybrid-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary Recommendation: Hybrid Approach
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-success-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Success Factors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#executive-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Executive Summary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analysis Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detailed-module-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Detailed Module Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Detailed Module Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-crm-customer-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. CRM &amp; Customer Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. CRM &amp; Customer Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-crm-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo CRM Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo CRM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-requirements-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Requirements (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-sales-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Sales Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Sales Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-sales-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Sales Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-sales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Sales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-requirements-gap_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Requirements (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-inventory-logistics-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Inventory &amp; Logistics Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Inventory &amp; Logistics Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-inventory-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Inventory Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-inventory" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Inventory
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#critical-customizations-required-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Critical Customizations Required (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-accounting-invoicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Accounting &amp; Invoicing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Accounting &amp; Invoicing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-accounting-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Accounting Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-accounting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Accounting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-requirements-gap_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Requirements (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-project-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Project Management
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Project Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-project-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Project Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-recommendation-gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Recommendation (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-website-customer-portal" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Website &amp; Customer Portal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Website &amp; Customer Portal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-website-module-capabilities-fit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Website Module Capabilities (FIT)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#portal-requirements-vs-odoo-website" class="md-nav__link">
+    <span class="md-ellipsis">
+      Portal Requirements vs Odoo Website
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#customization-requirements-gap_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customization Requirements (GAP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-architecture-with-odoo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integration Architecture with Odoo
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integration Architecture with Odoo">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recommended-integration-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommended Integration Pattern
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-synchronization-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Synchronization Strategy
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Synchronization Strategy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#real-time-sync-immediate" class="md-nav__link">
+    <span class="md-ellipsis">
+      Real-time Sync (Immediate)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#batch-sync-scheduled" class="md-nav__link">
+    <span class="md-ellipsis">
+      Batch Sync (Scheduled)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-driven-sync-triggered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Event-driven Sync (Triggered)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementation-roadmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Roadmap
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Implementation Roadmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-core-odoo-setup-4-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 1: Core Odoo Setup (4 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-basic-integration-6-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 2: Basic Integration (6 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-3-logistics-customization-8-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 3: Logistics Customization (8 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-4-advanced-features-6-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 4: Advanced Features (6 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-5-testing-deployment-4-weeks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Phase 5: Testing &amp; Deployment (4 weeks)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cost-benefit-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cost-Benefit Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cost-Benefit Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#odoo-licensing-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Odoo Licensing Costs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-development-costs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom Development Costs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-solution-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Solution Comparison
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risk-assessment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Risk Assessment
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Risk Assessment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Risks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-risks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Business Risks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recommendations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primary-recommendation-hybrid-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      Primary Recommendation: Hybrid Approach
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-success-factors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key Success Factors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alternative-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alternative Considerations
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="odoo-erp-fit-gap-analysis">Odoo ERP Fit &amp; Gap Analysis<a class="headerlink" href="#odoo-erp-fit-gap-analysis" title="Permanent link">&para;</a></h1>
+<h2 id="executive-summary">Executive Summary<a class="headerlink" href="#executive-summary" title="Permanent link">&para;</a></h2>
+<p>This document analyzes the compatibility between ALSC Customer Online Portal requirements and Odoo ERP capabilities, identifying areas where Odoo modules align with our needs (FIT) and areas requiring customization or alternative solutions (GAP).</p>
+<h2 id="analysis-overview">Analysis Overview<a class="headerlink" href="#analysis-overview" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Module Category</th>
+<th>Fit Score</th>
+<th>Gap Score</th>
+<th>Recommendation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CRM &amp; Customer Management</td>
+<td>85%</td>
+<td>15%</td>
+<td>Use with minor customizations</td>
+</tr>
+<tr>
+<td>Sales Management</td>
+<td>90%</td>
+<td>10%</td>
+<td>Direct implementation</td>
+</tr>
+<tr>
+<td>Inventory &amp; Logistics</td>
+<td>70%</td>
+<td>30%</td>
+<td>Significant customization needed</td>
+</tr>
+<tr>
+<td>Accounting &amp; Invoicing</td>
+<td>95%</td>
+<td>5%</td>
+<td>Direct implementation</td>
+</tr>
+<tr>
+<td>Project Management</td>
+<td>60%</td>
+<td>40%</td>
+<td>Consider alternative or heavy customization</td>
+</tr>
+<tr>
+<td>Website &amp; Portal</td>
+<td>75%</td>
+<td>25%</td>
+<td>Use as foundation with custom development</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Overall Assessment</strong>: Odoo provides a strong foundation for 75% of requirements with customization needed for logistics-specific features.</p>
+<h2 id="detailed-module-analysis">Detailed Module Analysis<a class="headerlink" href="#detailed-module-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="1-crm-customer-management">1. CRM &amp; Customer Management<a class="headerlink" href="#1-crm-customer-management" title="Permanent link">&para;</a></h3>
+<h4 id="odoo-crm-module-capabilities-fit">Odoo CRM Module Capabilities (FIT)<a class="headerlink" href="#odoo-crm-module-capabilities-fit" title="Permanent link">&para;</a></h4>
+<p>✅ <strong>Customer/Partner Management</strong>
+- Complete customer profiles with contacts
+- Customer categorization and segmentation
+- Lead to customer conversion workflow
+- Customer hierarchy management
+- Document attachment system</p>
+<p>✅ <strong>Communication Management</strong>
+- Email integration and tracking
+- Activity scheduling and follow-ups
+- Communication history logging
+- Mass mailing capabilities</p>
+<p>✅ <strong>Sales Pipeline</strong>
+- Opportunity management
+- Pipeline visualization
+- Automated workflows
+- Sales team management</p>
+<h4 id="portal-requirements-vs-odoo-crm">Portal Requirements vs Odoo CRM<a class="headerlink" href="#portal-requirements-vs-odoo-crm" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Odoo Capability</th>
+<th>Fit</th>
+<th>Gap</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer registration</td>
+<td>Lead/Partner creation</td>
+<td>✅</td>
+<td>-</td>
+<td>Direct mapping</td>
+</tr>
+<tr>
+<td>Approval workflow</td>
+<td>Partner validation</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Add approval states</td>
+</tr>
+<tr>
+<td>Customer tiers (Premium/Standard)</td>
+<td>Partner categories</td>
+<td>✅</td>
+<td>-</td>
+<td>Use category system</td>
+</tr>
+<tr>
+<td>Credit limit management</td>
+<td>Partner credit limit</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Multi-contact management</td>
+<td>Partner contacts</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Document management</td>
+<td>Attachment system</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Customer analytics</td>
+<td>CRM reports</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Custom dashboards</td>
+</tr>
+</tbody>
+</table>
+<h4 id="customization-requirements-gap">Customization Requirements (GAP)<a class="headerlink" href="#customization-requirements-gap" title="Permanent link">&para;</a></h4>
+<p>🔶 <strong>Minor Customizations Needed</strong>
+- Add logistics-specific customer fields (IATA codes, bonded warehouse licenses)
+- Custom approval workflow for customer registration
+- Integration with external customer validation services
+- Portal-specific customer dashboard</p>
+<p><strong>Estimated Development</strong>: 2-3 weeks</p>
+<h3 id="2-sales-management">2. Sales Management<a class="headerlink" href="#2-sales-management" title="Permanent link">&para;</a></h3>
+<h4 id="odoo-sales-module-capabilities-fit">Odoo Sales Module Capabilities (FIT)<a class="headerlink" href="#odoo-sales-module-capabilities-fit" title="Permanent link">&para;</a></h4>
+<p>✅ <strong>Quote &amp; Order Management</strong>
+- Online quotation system
+- Order confirmation workflow
+- Multi-currency support
+- Price list management
+- Delivery terms configuration</p>
+<p>✅ <strong>Product &amp; Service Catalog</strong>
+- Product variants and configurations
+- Service products for logistics
+- Pricing rules and discounts
+- Unit of measure management</p>
+<p>✅ <strong>Integration Capabilities</strong>
+- Website integration
+- Inventory integration
+- Accounting integration
+- CRM integration</p>
+<h4 id="portal-requirements-vs-odoo-sales">Portal Requirements vs Odoo Sales<a class="headerlink" href="#portal-requirements-vs-odoo-sales" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Odoo Capability</th>
+<th>Fit</th>
+<th>Gap</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service request to quote</td>
+<td>Quote creation</td>
+<td>✅</td>
+<td>-</td>
+<td>Direct workflow</td>
+</tr>
+<tr>
+<td>Multi-service bundling</td>
+<td>Product bundling</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Dynamic pricing</td>
+<td>Pricelist rules</td>
+<td>✅</td>
+<td>-</td>
+<td>Configuration</td>
+</tr>
+<tr>
+<td>Approval workflows</td>
+<td>Sale approval</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in workflow</td>
+</tr>
+<tr>
+<td>Customer portal access</td>
+<td>Online quotes</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in portal</td>
+</tr>
+<tr>
+<td>Service templates</td>
+<td>Product templates</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Custom templates</td>
+</tr>
+<tr>
+<td>Integration with tracking</td>
+<td>Custom fields</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Add tracking fields</td>
+</tr>
+</tbody>
+</table>
+<h4 id="customization-requirements-gap_1">Customization Requirements (GAP)<a class="headerlink" href="#customization-requirements-gap_1" title="Permanent link">&para;</a></h4>
+<p>🔶 <strong>Minor Customizations Needed</strong>
+- Logistics service product templates
+- AWB number generation integration
+- Shipment milestone tracking in sales orders
+- Custom pricing rules for logistics services</p>
+<p><strong>Estimated Development</strong>: 1-2 weeks</p>
+<h3 id="3-inventory-logistics-management">3. Inventory &amp; Logistics Management<a class="headerlink" href="#3-inventory-logistics-management" title="Permanent link">&para;</a></h3>
+<h4 id="odoo-inventory-module-capabilities-fit">Odoo Inventory Module Capabilities (FIT)<a class="headerlink" href="#odoo-inventory-module-capabilities-fit" title="Permanent link">&para;</a></h4>
+<p>✅ <strong>Basic Inventory Management</strong>
+- Multi-warehouse support
+- Stock movements and transfers
+- Inventory valuation methods
+- Barcode support</p>
+<p>✅ <strong>Shipping &amp; Receiving</strong>
+- Delivery orders
+- Shipping methods
+- Tracking number management
+- Batch picking and packing</p>
+<p>⚠️ <strong>Limited Logistics Features</strong>
+- Basic warehouse operations
+- Simple delivery tracking
+- Limited air freight features
+- No IATA compliance</p>
+<h4 id="portal-requirements-vs-odoo-inventory">Portal Requirements vs Odoo Inventory<a class="headerlink" href="#portal-requirements-vs-odoo-inventory" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Odoo Capability</th>
+<th>Fit</th>
+<th>Gap</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWB management</td>
+<td>Product tracking</td>
+<td>⚠️</td>
+<td>Major</td>
+<td>Custom AWB module</td>
+</tr>
+<tr>
+<td>Flight manifest</td>
+<td>Delivery planning</td>
+<td>⚠️</td>
+<td>Major</td>
+<td>Custom flight module</td>
+</tr>
+<tr>
+<td>Customs clearance</td>
+<td>Inventory moves</td>
+<td>❌</td>
+<td>Critical</td>
+<td>Third-party integration</td>
+</tr>
+<tr>
+<td>Real-time tracking</td>
+<td>Delivery tracking</td>
+<td>⚠️</td>
+<td>Major</td>
+<td>IATA OneRecord integration</td>
+</tr>
+<tr>
+<td>Cargo consolidation</td>
+<td>Batch operations</td>
+<td>⚠️</td>
+<td>Moderate</td>
+<td>Custom logic</td>
+</tr>
+<tr>
+<td>Weight/dimension calc</td>
+<td>Product attributes</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Configuration</td>
+</tr>
+<tr>
+<td>Multi-piece shipments</td>
+<td>Stock moves</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Custom fields</td>
+</tr>
+</tbody>
+</table>
+<h4 id="critical-customizations-required-gap">Critical Customizations Required (GAP)<a class="headerlink" href="#critical-customizations-required-gap" title="Permanent link">&para;</a></h4>
+<p>❌ <strong>Major Development Needed</strong></p>
+<ol>
+<li><strong>Air Freight Management Module</strong></li>
+<li>AWB number generation and validation</li>
+<li>Flight scheduling and capacity management</li>
+<li>Cargo manifest generation</li>
+<li>
+<p>IATA compliance features</p>
+</li>
+<li>
+<p><strong>Customs Integration Module</strong></p>
+</li>
+<li>Customs declaration management</li>
+<li>Regulatory compliance tracking</li>
+<li>Document generation for customs</li>
+<li>
+<p>Integration with customs APIs</p>
+</li>
+<li>
+<p><strong>Advanced Tracking Module</strong></p>
+</li>
+<li>IATA OneRecord integration</li>
+<li>Real-time milestone tracking</li>
+<li>Exception handling and alerts</li>
+<li>Multi-carrier tracking aggregation</li>
+</ol>
+<p><strong>Estimated Development</strong>: 8-12 weeks</p>
+<h3 id="4-accounting-invoicing">4. Accounting &amp; Invoicing<a class="headerlink" href="#4-accounting-invoicing" title="Permanent link">&para;</a></h3>
+<h4 id="odoo-accounting-module-capabilities-fit">Odoo Accounting Module Capabilities (FIT)<a class="headerlink" href="#odoo-accounting-module-capabilities-fit" title="Permanent link">&para;</a></h4>
+<p>✅ <strong>Complete Accounting System</strong>
+- Multi-currency accounting
+- Automated invoice generation
+- Payment processing
+- Tax management
+- Financial reporting</p>
+<p>✅ <strong>Integration Features</strong>
+- Sales order to invoice workflow
+- Inventory cost integration
+- CRM integration
+- Bank reconciliation</p>
+<h4 id="portal-requirements-vs-odoo-accounting">Portal Requirements vs Odoo Accounting<a class="headerlink" href="#portal-requirements-vs-odoo-accounting" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Odoo Capability</th>
+<th>Fit</th>
+<th>Gap</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Automated invoicing</td>
+<td>Invoice automation</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Multi-currency billing</td>
+<td>Multi-currency</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Payment gateway integration</td>
+<td>Payment providers</td>
+<td>✅</td>
+<td>-</td>
+<td>Standard connectors</td>
+</tr>
+<tr>
+<td>Credit note management</td>
+<td>Credit notes</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Recurring billing</td>
+<td>Recurring invoices</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Customer payment portal</td>
+<td>Online payment</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in portal</td>
+</tr>
+<tr>
+<td>Financial reporting</td>
+<td>Standard reports</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Custom logistics reports</td>
+</tr>
+</tbody>
+</table>
+<h4 id="customization-requirements-gap_2">Customization Requirements (GAP)<a class="headerlink" href="#customization-requirements-gap_2" title="Permanent link">&para;</a></h4>
+<p>🔶 <strong>Minor Customizations Needed</strong>
+- Logistics-specific invoice templates
+- Custom payment terms for air freight
+- Integration with specialized payment gateways
+- Freight cost calculation automation</p>
+<p><strong>Estimated Development</strong>: 1 week</p>
+<h3 id="5-project-management">5. Project Management<a class="headerlink" href="#5-project-management" title="Permanent link">&para;</a></h3>
+<h4 id="odoo-project-module-capabilities-fit">Odoo Project Module Capabilities (FIT)<a class="headerlink" href="#odoo-project-module-capabilities-fit" title="Permanent link">&para;</a></h4>
+<p>✅ <strong>Basic Project Management</strong>
+- Task management and assignment
+- Time tracking
+- Project templates
+- Gantt charts and kanban boards</p>
+<p>⚠️ <strong>Limited Service Request Features</strong>
+- Basic task workflows
+- Simple approval processes
+- Limited customization options</p>
+<h4 id="portal-requirements-vs-odoo-project">Portal Requirements vs Odoo Project<a class="headerlink" href="#portal-requirements-vs-odoo-project" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Odoo Capability</th>
+<th>Fit</th>
+<th>Gap</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service request tracking</td>
+<td>Task management</td>
+<td>⚠️</td>
+<td>Moderate</td>
+<td>Custom workflow</td>
+</tr>
+<tr>
+<td>SLA management</td>
+<td>Project deadlines</td>
+<td>⚠️</td>
+<td>Moderate</td>
+<td>Custom SLA module</td>
+</tr>
+<tr>
+<td>Automated assignments</td>
+<td>Task assignment</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Configuration</td>
+</tr>
+<tr>
+<td>Status notifications</td>
+<td>Activity notifications</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Custom templates</td>
+</tr>
+<tr>
+<td>Customer visibility</td>
+<td>Portal access</td>
+<td>⚠️</td>
+<td>Moderate</td>
+<td>Custom portal views</td>
+</tr>
+<tr>
+<td>Approval workflows</td>
+<td>Project stages</td>
+<td>⚠️</td>
+<td>Moderate</td>
+<td>Custom workflow</td>
+</tr>
+</tbody>
+</table>
+<h4 id="alternative-recommendation-gap">Alternative Recommendation (GAP)<a class="headerlink" href="#alternative-recommendation-gap" title="Permanent link">&para;</a></h4>
+<p>❌ <strong>Consider Custom Service Request Module</strong>
+- Dedicated service request management
+- Logistics-specific workflows
+- Advanced SLA tracking
+- Customer portal integration
+- Integration with shipping modules</p>
+<p><strong>Estimated Development</strong>: 4-6 weeks</p>
+<h3 id="6-website-customer-portal">6. Website &amp; Customer Portal<a class="headerlink" href="#6-website-customer-portal" title="Permanent link">&para;</a></h3>
+<h4 id="odoo-website-module-capabilities-fit">Odoo Website Module Capabilities (FIT)<a class="headerlink" href="#odoo-website-module-capabilities-fit" title="Permanent link">&para;</a></h4>
+<p>✅ <strong>Portal Infrastructure</strong>
+- Customer portal framework
+- User authentication system
+- Document sharing
+- Basic self-service features</p>
+<p>✅ <strong>Website Features</strong>
+- CMS capabilities
+- Form builders
+- Mobile responsive
+- SEO optimization</p>
+<h4 id="portal-requirements-vs-odoo-website">Portal Requirements vs Odoo Website<a class="headerlink" href="#portal-requirements-vs-odoo-website" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Odoo Capability</th>
+<th>Fit</th>
+<th>Gap</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer registration</td>
+<td>Portal signup</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Document upload</td>
+<td>File uploads</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+<tr>
+<td>Service request forms</td>
+<td>Website forms</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Custom forms</td>
+</tr>
+<tr>
+<td>Tracking interface</td>
+<td>Portal views</td>
+<td>⚠️</td>
+<td>Moderate</td>
+<td>Custom tracking views</td>
+</tr>
+<tr>
+<td>Payment processing</td>
+<td>eCommerce</td>
+<td>✅</td>
+<td>Minor</td>
+<td>Adapt for services</td>
+</tr>
+<tr>
+<td>Mobile app support</td>
+<td>PWA support</td>
+<td>⚠️</td>
+<td>Moderate</td>
+<td>Custom mobile app</td>
+</tr>
+<tr>
+<td>Multi-language</td>
+<td>Website i18n</td>
+<td>✅</td>
+<td>-</td>
+<td>Built-in feature</td>
+</tr>
+</tbody>
+</table>
+<h4 id="customization-requirements-gap_3">Customization Requirements (GAP)<a class="headerlink" href="#customization-requirements-gap_3" title="Permanent link">&para;</a></h4>
+<p>🔶 <strong>Moderate Customizations Needed</strong>
+- Custom portal dashboard for logistics
+- Advanced tracking interface
+- Mobile-first responsive design
+- Integration with external systems
+- OCR document processing interface</p>
+<p><strong>Estimated Development</strong>: 4-6 weeks</p>
+<h2 id="integration-architecture-with-odoo">Integration Architecture with Odoo<a class="headerlink" href="#integration-architecture-with-odoo" title="Permanent link">&para;</a></h2>
+<h3 id="recommended-integration-pattern">Recommended Integration Pattern<a class="headerlink" href="#recommended-integration-pattern" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>graph TB
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    subgraph &quot;Customer Portal (Frontend)&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>        WEB[Web Application]
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>        MOBILE[Mobile App]
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    end
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    subgraph &quot;Integration Layer&quot;
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        API_GW[API Gateway]
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        PORTAL_API[Portal APIs]
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>        ODOO_ADAPTER[Odoo Adapter]
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>        QUEUE[Message Queue]
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    end
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    subgraph &quot;Odoo ERP Modules&quot;
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        CRM[CRM Module]
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>        SALES[Sales Module]  
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        INVENTORY[Inventory Module]
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        ACCOUNTING[Accounting Module]
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        WEBSITE[Website/Portal Module]
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>    end
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>    subgraph &quot;Custom Modules&quot;
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>        LOGISTICS[Air Freight Module]
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>        TRACKING[Advanced Tracking]
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>        CUSTOMS[Customs Module]
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>        SLA[SLA Management]
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>    end
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>    subgraph &quot;External Systems&quot;
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>        IATA[IATA OneRecord]
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>        AIRLINES[Airlines API]
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>        CUSTOMS_API[Customs API]
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>        PAYMENT[Payment Gateway]
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>    end
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>    WEB --&gt; API_GW
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>    MOBILE --&gt; API_GW
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>    API_GW --&gt; PORTAL_API
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>    PORTAL_API --&gt; ODOO_ADAPTER
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>    ODOO_ADAPTER --&gt; QUEUE
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>    QUEUE --&gt; CRM
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>    QUEUE --&gt; SALES
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    QUEUE --&gt; INVENTORY
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>    QUEUE --&gt; ACCOUNTING
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>    QUEUE --&gt; WEBSITE
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>    LOGISTICS --&gt; INVENTORY
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>    TRACKING --&gt; LOGISTICS
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>    CUSTOMS --&gt; LOGISTICS
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>    SLA --&gt; SALES
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>    TRACKING --&gt; IATA
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>    LOGISTICS --&gt; AIRLINES
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>    CUSTOMS --&gt; CUSTOMS_API
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>    ACCOUNTING --&gt; PAYMENT
+</code></pre></div>
+<h3 id="data-synchronization-strategy">Data Synchronization Strategy<a class="headerlink" href="#data-synchronization-strategy" title="Permanent link">&para;</a></h3>
+<h4 id="real-time-sync-immediate">Real-time Sync (Immediate)<a class="headerlink" href="#real-time-sync-immediate" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Customer registration/updates</li>
+<li>Service request creation</li>
+<li>Payment processing</li>
+<li>Critical status updates</li>
+</ul>
+<h4 id="batch-sync-scheduled">Batch Sync (Scheduled)<a class="headerlink" href="#batch-sync-scheduled" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Analytics data</li>
+<li>Reporting data</li>
+<li>Document archival</li>
+<li>Audit logs</li>
+</ul>
+<h4 id="event-driven-sync-triggered">Event-driven Sync (Triggered)<a class="headerlink" href="#event-driven-sync-triggered" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Shipment milestones</li>
+<li>SLA breaches</li>
+<li>Exception handling</li>
+<li>Notifications</li>
+</ul>
+<h2 id="implementation-roadmap">Implementation Roadmap<a class="headerlink" href="#implementation-roadmap" title="Permanent link">&para;</a></h2>
+<h3 id="phase-1-core-odoo-setup-4-weeks">Phase 1: Core Odoo Setup (4 weeks)<a class="headerlink" href="#phase-1-core-odoo-setup-4-weeks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Install and configure base Odoo modules</li>
+<li>Setup CRM, Sales, Accounting modules</li>
+<li>Configure basic customer portal</li>
+<li>Setup development and testing environments</li>
+</ul>
+<h3 id="phase-2-basic-integration-6-weeks">Phase 2: Basic Integration (6 weeks)<a class="headerlink" href="#phase-2-basic-integration-6-weeks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Develop Odoo API adapter</li>
+<li>Implement customer synchronization</li>
+<li>Setup service request to sales order workflow</li>
+<li>Configure basic portal interface</li>
+</ul>
+<h3 id="phase-3-logistics-customization-8-weeks">Phase 3: Logistics Customization (8 weeks)<a class="headerlink" href="#phase-3-logistics-customization-8-weeks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Develop air freight management module</li>
+<li>Implement AWB number generation</li>
+<li>Create flight scheduling interface</li>
+<li>Setup customs clearance workflow</li>
+</ul>
+<h3 id="phase-4-advanced-features-6-weeks">Phase 4: Advanced Features (6 weeks)<a class="headerlink" href="#phase-4-advanced-features-6-weeks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Implement IATA OneRecord integration</li>
+<li>Develop real-time tracking system</li>
+<li>Setup advanced analytics</li>
+<li>Mobile app development</li>
+</ul>
+<h3 id="phase-5-testing-deployment-4-weeks">Phase 5: Testing &amp; Deployment (4 weeks)<a class="headerlink" href="#phase-5-testing-deployment-4-weeks" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Integration testing</li>
+<li>User acceptance testing</li>
+<li>Performance optimization</li>
+<li>Production deployment</li>
+</ul>
+<p><strong>Total Estimated Timeline</strong>: 28 weeks (7 months)</p>
+<h2 id="cost-benefit-analysis">Cost-Benefit Analysis<a class="headerlink" href="#cost-benefit-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="odoo-licensing-costs">Odoo Licensing Costs<a class="headerlink" href="#odoo-licensing-costs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Users</th>
+<th>Annual Cost (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Odoo Enterprise</td>
+<td>50 users</td>
+<td>$37,500</td>
+</tr>
+<tr>
+<td>Additional modules</td>
+<td>-</td>
+<td>$5,000</td>
+</tr>
+<tr>
+<td>Support &amp; maintenance</td>
+<td>-</td>
+<td>$10,000</td>
+</tr>
+<tr>
+<td><strong>Total Annual</strong></td>
+<td>-</td>
+<td><strong>$52,500</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="custom-development-costs">Custom Development Costs<a class="headerlink" href="#custom-development-costs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Weeks</th>
+<th>Cost (USD)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core integration</td>
+<td>10</td>
+<td>$100,000</td>
+</tr>
+<tr>
+<td>Logistics modules</td>
+<td>12</td>
+<td>$120,000</td>
+</tr>
+<tr>
+<td>Portal customization</td>
+<td>6</td>
+<td>$60,000</td>
+</tr>
+<tr>
+<td>Testing &amp; deployment</td>
+<td>4</td>
+<td>$40,000</td>
+</tr>
+<tr>
+<td><strong>Total Development</strong></td>
+<td>32</td>
+<td><strong>$320,000</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="alternative-solution-comparison">Alternative Solution Comparison<a class="headerlink" href="#alternative-solution-comparison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Initial Cost</th>
+<th>Annual Cost</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Odoo + Custom</strong></td>
+<td>$320,000</td>
+<td>$52,500</td>
+<td>Integrated ERP, proven platform</td>
+<td>High customization needed</td>
+</tr>
+<tr>
+<td><strong>Custom Portal + SAP</strong></td>
+<td>$500,000</td>
+<td>$150,000</td>
+<td>Enterprise grade</td>
+<td>Very expensive</td>
+</tr>
+<tr>
+<td><strong>SaaS Logistics Platform</strong></td>
+<td>$50,000</td>
+<td>$120,000</td>
+<td>Quick deployment</td>
+<td>Limited customization</td>
+</tr>
+<tr>
+<td><strong>Full Custom Solution</strong></td>
+<td>$800,000</td>
+<td>$80,000</td>
+<td>Complete control</td>
+<td>High risk, long timeline</td>
+</tr>
+</tbody>
+</table>
+<h2 id="risk-assessment">Risk Assessment<a class="headerlink" href="#risk-assessment" title="Permanent link">&para;</a></h2>
+<h3 id="technical-risks">Technical Risks<a class="headerlink" href="#technical-risks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Probability</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Odoo upgrade compatibility</td>
+<td>Medium</td>
+<td>High</td>
+<td>Version control, testing</td>
+</tr>
+<tr>
+<td>Performance with customizations</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Load testing, optimization</td>
+</tr>
+<tr>
+<td>Integration complexity</td>
+<td>High</td>
+<td>Medium</td>
+<td>Phased approach, prototyping</td>
+</tr>
+<tr>
+<td>Data migration issues</td>
+<td>Low</td>
+<td>High</td>
+<td>Thorough testing, backup plan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="business-risks">Business Risks<a class="headerlink" href="#business-risks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Probability</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User adoption challenges</td>
+<td>Medium</td>
+<td>High</td>
+<td>Training, change management</td>
+</tr>
+<tr>
+<td>Feature gaps discovered late</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Proof of concept, prototyping</td>
+</tr>
+<tr>
+<td>Vendor lock-in</td>
+<td>Low</td>
+<td>Medium</td>
+<td>API abstraction layer</td>
+</tr>
+<tr>
+<td>Regulatory compliance issues</td>
+<td>Low</td>
+<td>High</td>
+<td>Regular compliance reviews</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recommendations">Recommendations<a class="headerlink" href="#recommendations" title="Permanent link">&para;</a></h2>
+<h3 id="primary-recommendation-hybrid-approach">Primary Recommendation: Hybrid Approach<a class="headerlink" href="#primary-recommendation-hybrid-approach" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Use Odoo as ERP backbone</strong> for CRM, Sales, Accounting</li>
+<li><strong>Develop custom logistics modules</strong> for air freight specifics</li>
+<li><strong>Create portal API layer</strong> for flexibility and future-proofing</li>
+<li><strong>Implement gradual migration</strong> to minimize business disruption</li>
+</ol>
+<h3 id="key-success-factors">Key Success Factors<a class="headerlink" href="#key-success-factors" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Executive sponsorship</strong> for change management</li>
+<li><strong>Dedicated project team</strong> with Odoo and logistics expertise</li>
+<li><strong>Phased implementation</strong> to validate approach</li>
+<li><strong>Comprehensive testing</strong> at each phase</li>
+<li><strong>User training program</strong> for adoption</li>
+</ul>
+<h3 id="alternative-considerations">Alternative Considerations<a class="headerlink" href="#alternative-considerations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>If budget is constrained</strong>: Start with Odoo Community + basic customizations</li>
+<li><strong>If timeline is critical</strong>: Consider SaaS logistics platform initially</li>
+<li><strong>If control is paramount</strong>: Full custom development with API-first architecture</li>
+</ul>
+<hr />
+<p><strong>Conclusion</strong>: Odoo provides a solid foundation for 75% of requirements with significant value in ERP integration. The remaining 25% requires substantial custom development, particularly for logistics-specific features. The hybrid approach offers the best balance of functionality, cost, and time-to-market.</p>
+<p><strong>Next Steps</strong>: 
+1. Proof-of-concept development for critical logistics features
+2. Detailed technical architecture design
+3. Project team formation and resource planning
+4. Stakeholder approval for recommended approach</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 5, 2025 08:03:07 UTC">August 5, 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="August 5, 2025 08:03:07 UTC">August 5, 2025</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/alsc/CustomerOnlinePortal" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "search.highlight", "search.share", "toc.follow", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>

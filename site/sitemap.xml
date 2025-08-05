@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://portal-docs.alsc.com/</loc>
+         <lastmod>2025-08-05</lastmod>
+    </url>
+    <url>
+         <loc>https://portal-docs.alsc.com/backlog/overview/</loc>
+         <lastmod>2025-08-05</lastmod>
+    </url>
+    <url>
+         <loc>https://portal-docs.alsc.com/backlog/user-stories/</loc>
+         <lastmod>2025-08-05</lastmod>
+    </url>
+    <url>
+         <loc>https://portal-docs.alsc.com/overview/architecture/</loc>
+         <lastmod>2025-08-05</lastmod>
+    </url>
+    <url>
+         <loc>https://portal-docs.alsc.com/technical/api-specs/</loc>
+         <lastmod>2025-08-05</lastmod>
+    </url>
+    <url>
+         <loc>https://portal-docs.alsc.com/technical/database-design/</loc>
+         <lastmod>2025-08-05</lastmod>
+    </url>
+    <url>
+         <loc>https://portal-docs.alsc.com/technical/odoo-fit-gap/</loc>
+         <lastmod>2025-08-05</lastmod>
+    </url>
+</urlset>
